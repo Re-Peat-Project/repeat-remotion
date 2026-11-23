@@ -22,6 +22,16 @@ export function writeManifest(ffmpegPath = "ffmpeg") {
       out[id] = { file: `shots/${f}`, w: j.streams[0].width, h: j.streams[0].height, dur: +(+j.format.duration).toFixed(2) };
     }
   }
+  // photos (public/photos/*.jpg|png), addressed by file name without extension
+  const photos = path.join(dir, "..", "photos");
+  if (fs.existsSync(photos)) {
+    for (const f of fs.readdirSync(photos).sort()) {
+      if (!/\.(jpe?g|png)$/i.test(f)) continue;
+      const r = spawnSync(ffprobe, ["-v", "error", "-show_entries", "stream=width,height", "-of", "json", path.join(photos, f)], { encoding: "utf8" });
+      const st = JSON.parse(r.stdout).streams[0];
+      out[f.replace(/\.\w+$/, "")] = { file: `photos/${f}`, w: st.width, h: st.height };
+    }
+  }
   fs.writeFileSync(path.join(dir, "manifest.json"), JSON.stringify(out, null, 1));
   console.log(`  manifest.json: ${Object.keys(out).length} files`);
 }

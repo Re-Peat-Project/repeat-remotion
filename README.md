@@ -2,7 +2,7 @@
 
 Soft-launch video of the RE-PEAT peat restoration prioritisation dashboard (KLH/BPLH × Universitas Gadjah Mada), made with [Remotion](https://www.remotion.dev). First shown at the IMPLI closing ceremony, 25 November 2026.
 
-The video (about 6.5 minutes, 1920×1080) walks through the dashboard in Bahasa Indonesia, with English below each line. All screenshots and numbers come from the live dashboard, so the video can be rebuilt when the dashboard changes.
+The video (at most 5 minutes, enforced in `src/Root.tsx`; 1920×1080) walks through the dashboard in Bahasa Indonesia, with English below each line. All screenshots and numbers come from the live dashboard, so the video can be rebuilt when the dashboard changes.
 
 Dashboard: https://re-peat-project.github.io/re-peat/reports/national_profile/dashboard.html
 
@@ -22,7 +22,8 @@ npm ci
 capture/shots.json    what to screenshot or record on the dashboard (page, KHG, clicks, crop)
 capture/capture.mjs   opens the dashboard in Chrome, writes public/shots/ and public/stats.json
 capture/manifest.mjs  records the size of every shot (public/shots/manifest.json)
-public/logos/         KLH/BPLH and UGM logos
+public/logos/         KLH/BPLH, UGM and World Bank logos
+public/photos/        opening images (public domain / CC BY, credited on the logo card)
 public/music/         background music
 src/content.ts        the script: scene order, Bahasa and English text, shots, timing
 src/                  Remotion scenes that lay it all out
@@ -63,6 +64,7 @@ The repository holds only the track used in the video: `public/music/dreams-beco
 ## Credits and licences
 
 - Music: "Dreams Become Real", Kevin MacLeod (incompetech.com), licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). The credit is shown on the closing card.
-- Logos: the KLH/BPLH and Universitas Gadjah Mada logos belong to their institutions and are used here for the joint launch. The UGM logo comes from the official brand pack at brand.ugm.ac.id.
+- Opening images: NASA Earth Observatory (public domain); Pierre Markuse, contains modified Copernicus Sentinel data 2019 (CC BY 2.0). Both via Wikimedia Commons.
+- Logos: the KLH/BPLH, Universitas Gadjah Mada and World Bank logos belong to their institutions and are used here for the joint launch, with the World Bank credited as supporter. The UGM logo comes from the official brand pack at brand.ugm.ac.id; the World Bank logo from Wikimedia Commons (sourced from worldbank.org).
 - Font: Plus Jakarta Sans (SIL Open Font License), loaded through `@remotion/google-fonts`.
 - Remotion is free for individuals and small teams; larger organisations may need a company licence. See https://www.remotion.dev/license.

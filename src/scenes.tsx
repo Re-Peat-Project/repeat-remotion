@@ -1,7 +1,7 @@
 import React from "react";
 import { AbsoluteFill, Img, interpolate, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import type { Item, Scene, Stat } from "./content";
-import { Backdrop, BiText, Enter, ShotFrame, ShotSequence, useEnter } from "./components";
+import { Backdrop, BiText, Enter, FullBleed, ShotFrame, ShotSequence, useEnter } from "./components";
 import { C, fontFamily } from "./theme";
 
 type Of<K extends Scene["kind"]> = Extract<Scene, { kind: K }>;
@@ -15,12 +15,13 @@ export const TitleScene: React.FC<{ s: Of<"title"> }> = ({ s }) => {
   return (
     <AbsoluteFill>
       <Backdrop />
-      {s.bg ? (
+      {s.bg && s.photo ? <FullBleed s={s.bg} progress={frame / total} /> : null}
+      {s.bg && !s.photo ? (
         <AbsoluteFill style={{ opacity: 0.22, filter: "blur(2px) saturate(0.9)" }}>
           <ShotFrameFull s={s.bg} progress={frame / total} />
         </AbsoluteFill>
       ) : null}
-      {s.bg ? (
+      {s.bg && !s.photo ? (
         <AbsoluteFill style={{ background: "radial-gradient(ellipse at center, rgba(15,20,17,0.35), rgba(15,20,17,0.9) 75%)" }} />
       ) : null}
       <AbsoluteFill style={{ justifyContent: "center", alignItems: "center", padding: `0 ${PAD + 80}px` }}>
@@ -100,9 +101,12 @@ const CountUp: React.FC<{ value: string; delay: number }> = ({ value, delay }) =
 
 export const StatsScene: React.FC<{ s: Of<"stats"> }> = ({ s }) => {
   const cols = s.items.length === 4 ? 2 : s.items.length;
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
   return (
     <AbsoluteFill>
       <Backdrop />
+      {s.bg ? <FullBleed s={s.bg} progress={frame / (s.dur * fps)} opacity={0.75} /> : null}
       <AbsoluteFill style={{ padding: `120px ${PAD + 40}px`, justifyContent: "center" }}>
         <Enter delay={4}>
           <BiText t={s.title} size={64} enSize={34} />
@@ -247,21 +251,29 @@ const ItemRow: React.FC<{ it: Item; delay: number; compact: boolean }> = ({ it, 
 
 // ── Logos ────────────────────────────────────────────────────────────────────
 export const LogoScene: React.FC<{ s: Of<"logos"> }> = ({ s }) => (
-  <AbsoluteFill style={{ background: C.paper, justifyContent: "center", alignItems: "center" }}>
+  <AbsoluteFill style={{ background: C.paper, alignItems: "center", paddingTop: 110 }}>
     <Enter delay={4}>
-      <div style={{ display: "flex", alignItems: "center", gap: 110 }}>
-        <Img src={staticFile("logos/klh-bplh.png")} style={{ height: 300 }} />
-        <div style={{ width: 2, height: 220, background: "#d6d1c6" }} />
-        <Img src={staticFile("logos/ugm-horizontal.png")} style={{ height: 190 }} />
+      <div style={{ display: "flex", alignItems: "center", gap: 100 }}>
+        <Img src={staticFile("logos/klh-bplh.png")} style={{ height: 250 }} />
+        <div style={{ width: 2, height: 190, background: "#d6d1c6" }} />
+        <Img src={staticFile("logos/ugm-horizontal.png")} style={{ height: 160 }} />
       </div>
     </Enter>
-    <Enter delay={18} style={{ marginTop: 90 }}>
-      <BiText t={s.title} size={50} enSize={28} color={C.ink} enColor="#6b675e" align="center" gap={10} />
+    <Enter delay={14} style={{ marginTop: 60 }}>
+      <BiText t={s.title} size={48} enSize={26} color={C.ink} enColor="#6b675e" align="center" gap={8} />
     </Enter>
-    <Enter delay={26} style={{ marginTop: 22 }}>
-      <div style={{ fontFamily, fontSize: 28, fontWeight: 600, color: C.tealDeep, textAlign: "center" }}>Proyek Re-Peat · The Re-Peat project</div>
+    <Enter delay={20} style={{ marginTop: 16 }}>
+      <div style={{ fontFamily, fontSize: 26, fontWeight: 600, color: C.tealDeep, textAlign: "center" }}>Proyek Re-Peat · The Re-Peat project</div>
     </Enter>
-    <div style={{ position: "absolute", bottom: 44, fontFamily, fontSize: 18, color: "#8b877d", textAlign: "center" }}>
+    <Enter delay={28} style={{ marginTop: 56, display: "flex", alignItems: "center", gap: 34 }}>
+      <div style={{ fontFamily, textAlign: "right" }}>
+        <div style={{ fontSize: 26, fontWeight: 600, color: C.ink }}>{s.support.label.id}</div>
+        <div style={{ fontSize: 19, color: "#6b675e" }}>{s.support.label.en}</div>
+      </div>
+      <div style={{ width: 2, height: 64, background: "#d6d1c6" }} />
+      <Img src={staticFile(s.support.logo)} style={{ height: 70 }} />
+    </Enter>
+    <div style={{ position: "absolute", bottom: 36, fontFamily, fontSize: 16, lineHeight: 1.45, color: "#8b877d", textAlign: "center", maxWidth: 1600 }}>
       {s.credits.map((c) => (
         <div key={c}>{c}</div>
       ))}

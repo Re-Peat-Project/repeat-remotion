@@ -184,5 +184,20 @@
   "file": "shots/table-top.png",
   "w": 3840,
   "h": 2160
+ },
+ "nasa-haze-2015": {
+  "file": "photos/nasa-haze-2015.jpg",
+  "w": 3840,
+  "h": 2560
+ },
+ "nasa-haze-borneo-2019": {
+  "file": "photos/nasa-haze-borneo-2019.jpg",
+  "w": 3840,
+  "h": 3207
+ },
+ "sentinel-jambi-2019": {
+  "file": "photos/sentinel-jambi-2019.jpg",
+  "w": 2234,
+  "h": 1322
  }
 }

@@ -68,7 +68,7 @@ export const BiText: React.FC<{
   gap?: number;
   maxWidth?: number;
 }> = ({ t, size, enSize, weight = 700, color = C.text, enColor = C.muted, align = "left", gap, maxWidth }) => (
-  <div style={{ textAlign: align, maxWidth, fontFamily }}>
+  <div style={{ textAlign: align, maxWidth, fontFamily, textShadow: "0 2px 14px rgba(0,0,0,0.35)" }}>
     <div style={{ fontSize: size, fontWeight: weight, color, lineHeight: 1.12, letterSpacing: -0.5 }}>{t.id}</div>
     {t.en ? (
       <div
@@ -245,6 +245,25 @@ export const ShotSequence: React.FC<{ shots: Shot[]; total: number; aw: number; 
         );
       })}
     </div>
+  );
+};
+
+// Full-frame photo (or shot) behind a title or numbers scene, with a slow camera move
+// and a dark veil so the text stays readable.
+export const FullBleed: React.FC<{ s: Shot; progress: number; opacity?: number }> = ({ s, progress, opacity = 0.9 }) => {
+  const m = info(s.shot);
+  const p = Easing.bezier(0.45, 0, 0.55, 1)(Math.min(1, Math.max(0, progress)));
+  const r = lerp(s.from ?? FULL, s.to ?? s.from ?? FULL, p);
+  const box = place(m, r, 1920, 1080);
+  return (
+    <AbsoluteFill>
+      <AbsoluteFill style={{ opacity, overflow: "hidden" }}>
+        <Img src={staticFile(m.file)} style={{ position: "absolute", ...box }} />
+      </AbsoluteFill>
+      <AbsoluteFill
+        style={{ background: "radial-gradient(ellipse at center, rgba(15,20,17,0.35), rgba(15,20,17,0.72) 85%)" }}
+      />
+    </AbsoluteFill>
   );
 };
 
