@@ -28,3 +28,8 @@ public/music/*
 # recreated by `npm run capture` when needed
 public/shots/profile-actors.png
 public/shots/profile-map-permits.png
+
+# agent tooling installed per machine
+.agents/
+.claude/settings.local.json
+skills-lock.json
