@@ -1,0 +1,188 @@
+{
+ "clip-colour-by": {
+  "file": "shots/clip-colour-by.mp4",
+  "w": 846,
+  "h": 580,
+  "dur": 16
+ },
+ "clip-presets": {
+  "file": "shots/clip-presets.mp4",
+  "w": 1640,
+  "h": 1080,
+  "dur": 15.23
+ },
+ "clip-profile-layers": {
+  "file": "shots/clip-profile-layers.mp4",
+  "w": 1610,
+  "h": 500,
+  "dur": 20.93
+ },
+ "clip-weights-table": {
+  "file": "shots/clip-weights-table.mp4",
+  "w": 1920,
+  "h": 1080,
+  "dur": 16.73
+ },
+ "clip-weights": {
+  "file": "shots/clip-weights.mp4",
+  "w": 1920,
+  "h": 1080,
+  "dur": 43.53
+ },
+ "clip-zoom-islands": {
+  "file": "shots/clip-zoom-islands.mp4",
+  "w": 846,
+  "h": 580,
+  "dur": 18.27
+ },
+ "fire-full": {
+  "file": "shots/fire-full.png",
+  "w": 3840,
+  "h": 5656
+ },
+ "fire-kpis": {
+  "file": "shots/fire-kpis.png",
+  "w": 3776,
+  "h": 202
+ },
+ "fire-top": {
+  "file": "shots/fire-top.png",
+  "w": 3840,
+  "h": 2160
+ },
+ "home": {
+  "file": "shots/home.png",
+  "w": 3840,
+  "h": 2160
+ },
+ "method-top": {
+  "file": "shots/method-top.png",
+  "w": 3840,
+  "h": 2160
+ },
+ "prio-map-intervention": {
+  "file": "shots/prio-map-intervention.png",
+  "w": 1696,
+  "h": 1164
+ },
+ "prio-map-kalimantan": {
+  "file": "shots/prio-map-kalimantan.png",
+  "w": 1696,
+  "h": 1164
+ },
+ "prio-map-sumatera": {
+  "file": "shots/prio-map-sumatera.png",
+  "w": 1696,
+  "h": 1164
+ },
+ "prio-map-type": {
+  "file": "shots/prio-map-type.png",
+  "w": 1696,
+  "h": 1164
+ },
+ "prio-map-urgency": {
+  "file": "shots/prio-map-urgency.png",
+  "w": 1696,
+  "h": 1164
+ },
+ "prio-ranking": {
+  "file": "shots/prio-ranking.png",
+  "w": 3840,
+  "h": 2160
+ },
+ "prio-section": {
+  "file": "shots/prio-section.png",
+  "w": 3280,
+  "h": 3568
+ },
+ "prio-shift": {
+  "file": "shots/prio-shift.png",
+  "w": 1474,
+  "h": 594
+ },
+ "prio-types": {
+  "file": "shots/prio-types.png",
+  "w": 1474,
+  "h": 402
+ },
+ "profile-actors": {
+  "file": "shots/profile-actors.png",
+  "w": 1582,
+  "h": 610
+ },
+ "profile-charts": {
+  "file": "shots/profile-charts.png",
+  "w": 3220,
+  "h": 882
+ },
+ "profile-indicators": {
+  "file": "shots/profile-indicators.png",
+  "w": 1582,
+  "h": 1656
+ },
+ "profile-kpis": {
+  "file": "shots/profile-kpis.png",
+  "w": 3220,
+  "h": 204
+ },
+ "profile-landstatus": {
+  "file": "shots/profile-landstatus.png",
+  "w": 1582,
+  "h": 1150
+ },
+ "profile-map-canal": {
+  "file": "shots/profile-map-canal.png",
+  "w": 3220,
+  "h": 1002
+ },
+ "profile-map-cover": {
+  "file": "shots/profile-map-cover.png",
+  "w": 3220,
+  "h": 1002
+ },
+ "profile-map-damage": {
+  "file": "shots/profile-map-damage.png",
+  "w": 3220,
+  "h": 1002
+ },
+ "profile-map-depth": {
+  "file": "shots/profile-map-depth.png",
+  "w": 3220,
+  "h": 1002
+ },
+ "profile-map-permits": {
+  "file": "shots/profile-map-permits.png",
+  "w": 3220,
+  "h": 1002
+ },
+ "profile-map-satellite": {
+  "file": "shots/profile-map-satellite.png",
+  "w": 3220,
+  "h": 1002
+ },
+ "profile-map": {
+  "file": "shots/profile-map.png",
+  "w": 3220,
+  "h": 1002
+ },
+ "profile-summary": {
+  "file": "shots/profile-summary.png",
+  "w": 3220,
+  "h": 326
+ },
+ "profile-top": {
+  "file": "shots/profile-top.png",
+  "w": 3840,
+  "h": 2160
+ },
+ "table-kpis": {
+  "file": "shots/table-kpis.png",
+  "w": 3280,
+  "h": 210
+ },
+ "table-top": {
+  "file": "shots/table-top.png",
+  "w": 3840,
+  "h": 2160
+ }
+}

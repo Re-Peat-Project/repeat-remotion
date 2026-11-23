@@ -1,7 +1,7 @@
 {
-  "name": "repeat-launch",
+  "name": "repeat-remotion",
   "version": "1.0.0",
-  "description": "My Remotion video",
+  "description": "Soft-launch video of the RE-PEAT peat restoration prioritisation dashboard (Remotion)",
   "repository": {},
   "license": "UNLICENSED",
   "engines": {
@@ -10,6 +10,8 @@
   "private": true,
   "dependencies": {
     "@remotion/cli": "4.0.545",
+    "@remotion/google-fonts": "4.0.545",
+    "@remotion/transitions": "4.0.545",
     "react": "19.3.1",
     "react-dom": "19.3.1",
     "remotion": "4.0.545"
@@ -19,6 +21,7 @@
     "@types/react": "19.3.0",
     "@types/web": "0.0.166",
     "eslint": "10.12.0",
+    "playwright": "1.56.1",
     "prettier": "3.8.1",
     "typescript": "5.9.3"
   },
@@ -26,7 +29,10 @@
     "dev": "remotion studio",
     "build": "remotion bundle",
     "upgrade": "remotion upgrade",
-    "lint": "eslint src && tsc"
+    "lint": "eslint src && tsc",
+    "capture": "node capture/capture.mjs",
+    "preview": "node scripts/preview.mjs",
+    "render": "remotion render Launch out/repeat-launch.mp4"
   },
   "allowScripts": {
     "esbuild": false

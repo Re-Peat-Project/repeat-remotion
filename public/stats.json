@@ -1,0 +1,120 @@
+{
+  "national": {
+    "id": [
+      {
+        "value": "337",
+        "label": "KHG ditampilkan"
+      },
+      {
+        "value": "112.209",
+        "label": "km2 gambut"
+      },
+      {
+        "value": "2.112.155",
+        "label": "penduduk di gambut"
+      },
+      {
+        "value": "18.569",
+        "label": "km2 gambut terbakar, 2015 sampai 2025"
+      },
+      {
+        "value": "942.114",
+        "label": "titik panas VIIRS di gambut, 2012 sampai 2026"
+      },
+      {
+        "value": "48.020",
+        "label": "titik panas tahun ini (MODIS)"
+      }
+    ],
+    "en": [
+      {
+        "value": "337",
+        "label": "KHG shown"
+      },
+      {
+        "value": "112,209",
+        "label": "km2 of peat"
+      },
+      {
+        "value": "2,112,155",
+        "label": "people on the peat"
+      },
+      {
+        "value": "18,569",
+        "label": "km2 of peat burned, 2015 to 2025"
+      },
+      {
+        "value": "942,114",
+        "label": "VIIRS hotspots on peat, 2012 to 2026"
+      },
+      {
+        "value": "48,020",
+        "label": "hotspots this year (MODIS)"
+      }
+    ]
+  },
+  "fire": {
+    "id": [
+      {
+        "value": "1.890.911",
+        "label": "LUAS LAHAN  km² · Indonesia"
+      },
+      {
+        "value": "111.781",
+        "label": "TERBAKAR 2026 (BELUM LENGKAP)  ha · rerata 2015–2025: 704.568 ha/thn"
+      },
+      {
+        "value": "572.701",
+        "label": "TITIK PANAS 2026  VIIRS, sedang + tinggi · 30,3 per 100 km² lahan · ×3,2 rerata 2015–2025"
+      },
+      {
+        "value": "26%",
+        "label": "DI KONSESI  150.715 titik panas · 20% dari area terbakar 2015–2025"
+      },
+      {
+        "value": "64%",
+        "label": "DI KAWASAN HUTAN  369.337 titik panas · 58% dari area terbakar 2015–2025"
+      },
+      {
+        "value": "27%",
+        "label": "DI DESA DMPG  154.575 titik panas · 25% dari area terbakar 2015–2025"
+      }
+    ],
+    "en": [
+      {
+        "value": "1,890,911",
+        "label": "LAND AREA  km² · Indonesia"
+      },
+      {
+        "value": "111,781",
+        "label": "BURNED 2026 (INCOMPLETE)  ha · mean 2015–2025: 704,568 ha/yr"
+      },
+      {
+        "value": "572,701",
+        "label": "HOTSPOTS 2026  VIIRS, medium + high · 30.3 per 100 km² of land · ×3.2 mean 2015–2025"
+      },
+      {
+        "value": "26%",
+        "label": "IN CONCESSIONS  150,715 hotspots · 20% of burned area 2015–2025"
+      },
+      {
+        "value": "64%",
+        "label": "IN FOREST AREA  369,337 hotspots · 58% of burned area 2015–2025"
+      },
+      {
+        "value": "27%",
+        "label": "IN DMPG VILLAGES  154,575 hotspots · 25% of burned area 2015–2025"
+      }
+    ]
+  },
+  "asOf": {
+    "id": {
+      "text": "865 KHG, titik panas sampai 29 Okt 2026. Satu daftar: arahkan kursor ke label untuk penjelasan, geser bobot dan semuanya ikut berubah."
+    },
+    "en": {
+      "text": "865 KHG, hotspots to 29 Oct 2026. One list: hover any label for what it means, move a weight and everything updates."
+    }
+  },
+  "capturedAt": "2026-11-23T05:11:48.022Z",
+  "source": "https://re-peat-project.github.io/re-peat/reports/national_profile/"
+}

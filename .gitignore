@@ -1,7 +1,30 @@
-node_modules
-dist
-.DS_Store
-.env
+# dependencies and build output
+node_modules/
+dist/
+out/
+build/
 
-# Ignore the output video from Git but not videos you import into src/.
-out
+# capture temp frames and logs
+capture/.frames-*/
+*.log
+
+# environment and OS files
+.env
+.env.*
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# editor folders
+.vscode/
+.idea/
+
+# music: only the track used in the video is kept in git;
+# the alternatives listed in README.md are downloaded locally
+public/music/*
+!public/music/dreams-become-real-norm.mp3
+
+# screenshots naming permit holders: not used in the video,
+# recreated by `npm run capture` when needed
+public/shots/profile-actors.png
+public/shots/profile-map-permits.png
