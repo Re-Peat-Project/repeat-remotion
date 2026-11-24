@@ -24,10 +24,11 @@ desktop.ini
 public/music/*
 !public/music/dreams-become-real-norm.mp3
 
-# screenshots naming permit holders: not used in the video,
+# screenshots naming permit holders or concession shares: not used in the video,
 # recreated by `npm run capture` when needed
 public/shots/profile-actors.png
 public/shots/profile-map-permits.png
+public/shots/khg-landstatus.png
 
 # agent tooling installed per machine
 .agents/
