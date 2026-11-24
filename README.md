@@ -1,10 +1,14 @@
 # repeat-remotion
 
-Soft-launch video of the RE-PEAT peat restoration prioritisation dashboard (KLH/BPLH × Universitas Gadjah Mada), made with [Remotion](https://www.remotion.dev). First shown at the IMPLI closing ceremony, 25 November 2026.
+The launch video for the IMPLI closing ceremony (25 November 2026): a 5-second countdown, the team's video *Prioritas KHG* unchanged, and the partner logos (KLH/BPLH, UGM, supported by the World Bank), with a Bahasa Indonesia voiceover. Composition `Final`, at most 4 minutes (enforced in `src/Root.tsx`). Details for contributors are in [AGENTS.md](AGENTS.md).
 
-The video (at most 5 minutes, enforced in `src/Root.tsx`; 1920×1080) walks through the dashboard in Bahasa Indonesia, with English below each line. All screenshots and numbers come from the live dashboard, so the video can be rebuilt when the dashboard changes.
+| Task | Command |
+|---|---|
+| Make the voiceover from `src/voiceover.json` | `npm run voice` |
+| Preview in the browser | `npm run dev` |
+| Render to `out/prioritas-khg-final.mp4` (about 7 min) | `npm run render` |
 
-Dashboard: https://re-peat-project.github.io/re-peat/reports/national_profile/dashboard.html
+The team's video goes in `public/team/prioritas-id.mp4` (not in git; see AGENTS.md for the one-line conversion).
 
 ## Requirements
 

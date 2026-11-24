@@ -11,3 +11,7 @@ Config.setRspack(true);
 Config.setVideoImageFormat("jpeg");
 Config.setOverwriteOutput(true);
 Config.setDefaultPremountInSeconds(2);
+
+// 8 parallel frame extractions from the team video fail with "No frame found at
+// position" in Remotion 4.0.545 (a race in the compositor); 4 is reliable.
+Config.setConcurrency(4);

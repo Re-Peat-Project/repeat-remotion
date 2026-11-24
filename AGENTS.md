@@ -9,9 +9,19 @@ Instructions for AI coding agents, and for the people working with them, on this
 3. **Numbers come from the dashboard, never from memory.** Every figure on screen is read from `public/stats.json`, which `npm run capture` reads off the live dashboard. Do not type numbers into `src/content.ts`. Build them from `stats` as the existing `nat()` helper does.
 4. **Sensitive content.** The video is shown at a ministerial event that private companies also attend. Keep out of the video: named permit or concession holders, the permits map layer, and concession-share figures. The two shots that hold them (`profile-actors`, `profile-map-permits`) are captured but not used and not kept in git. Ask the owner before adding anything of that kind.
 5. **Bahasa first.** Every on-screen text is a pair `{ id, en }`: Bahasa Indonesia is the large line, English the smaller one. Take definitions (action types, dimensions, interventions) from the dashboard's own translations in the dashboard source, not from paraphrase.
-6. **The video is at most 5 minutes (9000 frames at 30 fps).** Total length = sum of all scene `dur` − 0.6 s per transition. `npm run preview` prints the total, and `src/Root.tsx` refuses to load a composition that is longer. Check the total after every change to `src/content.ts`. To make room for something new, shorten or drop another scene rather than going over.
+6. **The video is at most 4 minutes (7200 frames at 30 fps).** `src/Root.tsx` refuses to load a composition that is longer. To make room for something new, shorten something else rather than going over.
 7. **Licensed images only.** Photos in `public/photos/` must be public domain or CC BY, with the source and licence recorded below and a credit line on the logo card. CC BY-SA, CC BY-NC or ND images need the owner's decision first (share-alike can put the whole video under the same licence). Never use images of a fire somewhere else to stand in for Indonesian peat.
 8. **Ask before anything outward-facing or hard to reverse**, such as publishing a render or overwriting renders or shots you have not looked at.
+
+## What the video is now
+
+The launch video is the composition **`Final`** (`src/Final.tsx`): a plain 5-second countdown (asked for by KLH), the team's video `public/team/prioritas-id.mp4` unchanged, and a logo card in the team's naming ("Prioritas KHG · Pembasahan Gambut · KLH/BPLH"), with KLH/BPLH, UGM and "Didukung oleh" the World Bank. A Bahasa voiceover (Edge neural voice id-ID-GadisNeural) runs over it, timed to the team video's captions, and the video's music ducks under the voice.
+
+- The team's video is not in git (it is theirs; its source is not shared with us). Put their file in `raw-footage/` and make the Remotion-friendly copy: `ffmpeg -i prioritas-id.mp4 -vf "scale=in_range=full:out_range=tv,format=yuv420p" -r 30 -fps_mode cfr -c:v libx264 -crf 12 -preset slow -g 30 -bf 0 -c:a aac -b:a 256k -movflags +faststart public/team/prioritas-id.mp4`. The original is full-range (`yuvj420p`) with B-frames, which makes Remotion fail with "No frame found at position".
+- If the team's video changes length, update `videoSeconds` in `src/Final.tsx` and re-time the cues.
+- Voiceover: the lines and their times are in `src/voiceover.json` (`at` / `until` in seconds on the final timeline = team video time + 5). `npm run voice` (Python 3 with `edge-tts==7.3.1`) makes `public/voice/*.mp3`, loudness-normalised, and `public/voice/voice.json`; it fails if a line runs past its `until`. Shorten the text rather than speeding the voice up. The free Edge service rate-limits bursts (HTTP 429); the script pauses and retries.
+- The voice text is narration of what is on screen: keep it to the team video's own claims and numbers.
+- The earlier self-built edit (`src/Launch.tsx`, `src/content.ts`, `capture/`) is no longer registered in `Root.tsx` (it runs over the limit) but is kept as a source of scenes and as the capture tool for the dashboard (now at https://re-peat-project.github.io/repeat-dashboard/).
 
 ## Setup on a new machine
 
@@ -73,6 +83,7 @@ When the final dashboard changes a label or id, fix the shot here and re-capture
 
 ## Pitfalls already met
 
+- Rendering the team video with 8 parallel frame extractions fails with "No frame found at position" even on a clean file (a race in Remotion 4.0.545's compositor). `remotion.config.ts` sets concurrency 4, which renders reliably (about 16 min for the Final video).
 - The dashboard uses smooth scrolling. Scroll with `behavior: "instant"`, or a second scroll call cancels the first and the shot stays at the top.
 - Clicking a control below the fold makes Playwright scroll the page during a clip (this happened with `#fw-reset`). Keep a clip's controls in view, or crop.
 - Chrome's screencast records at 1× (1920 px wide) even at `scale: 2`, so a cropped clip of a small panel is soft. Prefer 2× stills, crossfaded in Remotion, for state changes such as colour-by or map layers. Keep recorded clips for what stills cannot show, such as the weight sliders re-ranking the list.

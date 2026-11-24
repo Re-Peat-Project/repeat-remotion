@@ -1,0 +1,121 @@
+{
+  "_readme": "Voiceover of the Final video. `at` and `until` are seconds on the final timeline (the countdown is 0-5 s, so the team's video time + 5). A line must finish before `until`. Edit the text, then run: npm run voice (makes public/voice/*.mp3 and voice.json), then render.",
+  "voice": "id-ID-GadisNeural",
+  "rate": "+0%",
+  "cues": [
+    {
+      "id": "c01",
+      "at": 5.8,
+      "until": 13.3,
+      "text": "Lahan gambut menyimpan air dan karbon. Saat kering, gambut mudah terbakar."
+    },
+    {
+      "id": "c02",
+      "at": 13.8,
+      "until": 17.3,
+      "text": "Dan asap kembali setiap musim kemarau."
+    },
+    {
+      "id": "c03",
+      "at": 17.5,
+      "until": 26.6,
+      "text": "Ada delapan ratus enam puluh lima kesatuan hidrologis gambut, dan tiga ratus tiga puluh tujuh di antaranya menjadi prioritas KLH."
+    },
+    {
+      "id": "c03b",
+      "at": 27.0,
+      "until": 28.8,
+      "text": "Mulai dari mana?"
+    },
+    {
+      "id": "c04",
+      "at": 29.2,
+      "until": 36.8,
+      "text": "Personel dan sumber daya terbatas, sementara datanya tersebar di banyak sumber."
+    },
+    {
+      "id": "c05",
+      "at": 37.2,
+      "until": 42.4,
+      "text": "Karena itu dibutuhkan satu aturan yang terbuka dan bisa diperiksa."
+    },
+    {
+      "id": "c06",
+      "at": 42.8,
+      "until": 51.2,
+      "text": "Dasbor Prioritas KHG menilai semua KHG dengan aturan yang sama, dalam lima tipe aksi."
+    },
+    {
+      "id": "c07",
+      "at": 51.3,
+      "until": 57.5,
+      "text": "Lima dimensi per KHG. Tiga dinilai, dua menjadi penanda."
+    },
+    {
+      "id": "c08",
+      "at": 57.8,
+      "until": 68.6,
+      "text": "Nilai mentah setiap indikator diubah menjadi persentil, lalu dirata-ratakan dengan bobot menjadi skor urgensi."
+    },
+    {
+      "id": "c09",
+      "at": 69.0,
+      "until": 79.2,
+      "text": "Semua KHG diurutkan dengan aturan yang sama, menurut urgensi, lalu menurut kompleksitas, hingga terbentuk lima tipe aksi."
+    },
+    {
+      "id": "c10",
+      "at": 79.6,
+      "until": 88.2,
+      "text": "Kondisi lahan menentukan tindakan. Gambut yang dikeringkan kanal perlu dibasahi."
+    },
+    {
+      "id": "c11",
+      "at": 88.6,
+      "until": 107.0,
+      "text": "Profil nasional menampilkan titik panas tahun ini untuk setiap KHG, serta muka air tanah mingguan dari stasiun SiTMAT."
+    },
+    {
+      "id": "c12",
+      "at": 107.6,
+      "until": 125.0,
+      "text": "Di halaman prioritas, bobot setiap indikator dapat diatur, dan peringkat langsung bergeser."
+    },
+    {
+      "id": "c13",
+      "at": 125.6,
+      "until": 145.0,
+      "text": "Profil setiap KHG berisi ringkasan keputusan, peta kanal dan bekas terbakar, serta setiap indikator di balik skornya."
+    },
+    {
+      "id": "c14",
+      "at": 145.6,
+      "until": 159.6,
+      "text": "Tabel KHG dapat disaring, diurutkan, dan dibandingkan, dan daftar prioritasnya dapat diunduh."
+    },
+    {
+      "id": "c15",
+      "at": 160.2,
+      "until": 175.0,
+      "text": "Segera hadir di aplikasi Pembasahan Gambut. Ruang kerja peta, simulasi, ekspor laporan, dan daftar KHG. Dari peta sampai laporan."
+    },
+    {
+      "id": "c16",
+      "at": 175.3,
+      "until": 179.4,
+      "text": "Dari prioritas ke rencana."
+    },
+    {
+      "id": "c17",
+      "at": 180.0,
+      "until": 185.2,
+      "text": "Prioritas KHG. Mulai dari yang paling penting."
+    },
+    {
+      "id": "c18",
+      "at": 185.8,
+      "until": 192.2,
+      "text": "Kementerian Lingkungan Hidup dan Universitas Gadjah Mada, didukung oleh Bank Dunia."
+    }
+  ]
+}

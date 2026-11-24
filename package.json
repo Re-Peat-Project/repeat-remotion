@@ -32,7 +32,8 @@
     "lint": "eslint src && tsc",
     "capture": "node capture/capture.mjs",
     "preview": "node scripts/preview.mjs",
-    "render": "remotion render Launch out/repeat-launch.mp4"
+    "render": "remotion render Final out/prioritas-khg-final.mp4",
+    "voice": "py -3 scripts/voiceover.py"
   },
   "allowScripts": {
     "esbuild": false

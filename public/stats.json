@@ -57,64 +57,64 @@
     "id": [
       {
         "value": "1.890.911",
-        "label": "LUAS LAHAN  km² · Indonesia"
+        "label": "Luas lahan  km² · Indonesia"
       },
       {
         "value": "111.781",
-        "label": "TERBAKAR 2026 (BELUM LENGKAP)  ha · rerata 2015–2025: 704.568 ha/thn"
+        "label": "Terbakar 2026 (belum lengkap)  ha · rata-rata 2015–2025: 704.568 ha/thn"
       },
       {
-        "value": "572.701",
-        "label": "TITIK PANAS 2026  VIIRS, sedang + tinggi · 30,3 per 100 km² lahan · ×3,2 rerata 2015–2025"
+        "value": "204.495",
+        "label": "Titik panas 2026  MODIS, sedang + tinggi · 10.8 per 100 km² lahan"
       },
       {
-        "value": "26%",
-        "label": "DI KONSESI  150.715 titik panas · 20% dari area terbakar 2015–2025"
+        "value": "25%",
+        "label": "Di konsesi  20% luas terbakar 2015–2025 · 22% dari luas"
       },
       {
-        "value": "64%",
-        "label": "DI KAWASAN HUTAN  369.337 titik panas · 58% dari area terbakar 2015–2025"
+        "value": "58%",
+        "label": "Di kawasan hutan  58% luas terbakar 2015–2025 · 63% dari luas"
       },
       {
-        "value": "27%",
-        "label": "DI DESA DMPG  154.575 titik panas · 25% dari area terbakar 2015–2025"
+        "value": "20%",
+        "label": "Di desa DMPG  25% luas terbakar 2015–2025 · 5% dari luas"
       }
     ],
     "en": [
       {
-        "value": "1,890,911",
-        "label": "LAND AREA  km² · Indonesia"
+        "value": "1.890.911",
+        "label": "Land area  km² · Indonesia"
       },
       {
-        "value": "111,781",
-        "label": "BURNED 2026 (INCOMPLETE)  ha · mean 2015–2025: 704,568 ha/yr"
+        "value": "111.781",
+        "label": "Burned 2026 (incomplete)  ha · mean 2015–2025: 704.568 ha/yr"
       },
       {
-        "value": "572,701",
-        "label": "HOTSPOTS 2026  VIIRS, medium + high · 30.3 per 100 km² of land · ×3.2 mean 2015–2025"
+        "value": "204.495",
+        "label": "Hotspots 2026  MODIS, medium + high · 10.8 per 100 km² of land"
       },
       {
-        "value": "26%",
-        "label": "IN CONCESSIONS  150,715 hotspots · 20% of burned area 2015–2025"
+        "value": "25%",
+        "label": "In concessions  20% of burned area 2015–2025 · 22% of the area"
       },
       {
-        "value": "64%",
-        "label": "IN FOREST AREA  369,337 hotspots · 58% of burned area 2015–2025"
+        "value": "58%",
+        "label": "In forest area  58% of burned area 2015–2025 · 63% of the area"
       },
       {
-        "value": "27%",
-        "label": "IN DMPG VILLAGES  154,575 hotspots · 25% of burned area 2015–2025"
+        "value": "20%",
+        "label": "In DMPG villages  25% of burned area 2015–2025 · 5% of the area"
       }
     ]
   },
   "asOf": {
     "id": {
-      "text": "865 KHG, titik panas sampai 29 Okt 2026. Satu daftar: arahkan kursor ke label untuk penjelasan, geser bobot dan semuanya ikut berubah."
+      "text": "865 KHG, titik panas sampai 29 Okt 2026. Lima dimensi per KHG, masing-masing dari indikatornya; tipe aksi dari urgensi, kompleksitas, dan taruhan. Aturan v2 ditulis 2026-11-17. Arahkan kursor ke label untuk artinya. Bobot masih sementara dan belum disepakati tim."
     },
     "en": {
-      "text": "865 KHG, hotspots to 29 Oct 2026. One list: hover any label for what it means, move a weight and everything updates."
+      "text": "865 KHG, hotspots to 29 Oct 2026. Five dimensions per KHG, each from its indicators; the type of action from urgency, complexity and stake. Rule v2 written 2026-11-17. Hover any label for what it means. Weights are provisional and not yet agreed with the team."
     }
   },
-  "capturedAt": "2026-11-23T05:11:48.022Z",
-  "source": "https://re-peat-project.github.io/re-peat/reports/national_profile/"
+  "capturedAt": "2026-11-24T06:18:20.077Z",
+  "source": "https://re-peat-project.github.io/repeat-dashboard/"
 }

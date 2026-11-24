@@ -1,6 +1,6 @@
 {
-  "_readme": "Edit this file to change what gets captured. Run: npm run capture (all) or npm run capture -- <id> <id>. Output goes to public/shots/ and public/stats.json.",
-  "baseUrl": "https://re-peat-project.github.io/re-peat/reports/national_profile/",
+  "_readme": "What to capture from the dashboard. `page` is an app route ({khg} = profileKhg). `block` shoots the panel under a heading (Bahasa text, start of the heading). Run: npm run capture (all) or npm run capture -- <id> <id>.",
+  "baseUrl": "https://re-peat-project.github.io/repeat-dashboard/",
   "lang": "id",
   "theme": "light",
   "viewport": {
@@ -8,328 +8,227 @@
     "height": 1080
   },
   "scale": 2,
-  "profileKhg": "KHG.62.11-14.02",
+  "profileKhg": "62.11-14.02",
   "stills": [
     {
-      "id": "home",
-      "page": "dashboard.html",
+      "id": "nat-top",
+      "page": "#/",
       "target": "viewport"
     },
     {
-      "id": "prio-section",
-      "page": "dashboard.html",
-      "target": "#final"
+      "id": "nat-fire",
+      "page": "#/",
+      "block": "Situasi kebakaran"
+    },
+    {
+      "id": "nat-trends",
+      "page": "#/",
+      "block": "Tren kebakaran"
+    },
+    {
+      "id": "nat-province",
+      "page": "#/",
+      "block": "Menurut provinsi"
+    },
+    {
+      "id": "water-top",
+      "page": "#/?v=water",
+      "target": "viewport"
+    },
+    {
+      "id": "water-weekly",
+      "page": "#/?v=water",
+      "block": "Titik panas dan muka air mingguan"
+    },
+    {
+      "id": "water-region",
+      "page": "#/?v=water",
+      "block": "Muka air tanah menurut wilayah"
+    },
+    {
+      "id": "prio-top",
+      "page": "#/priority",
+      "target": "viewport"
     },
     {
       "id": "prio-map-type",
-      "page": "dashboard.html",
-      "target": "#mapcard"
+      "page": "#/priority",
+      "target": ".maplibregl-map"
     },
     {
       "id": "prio-map-urgency",
-      "page": "dashboard.html",
+      "page": "#/priority",
       "actions": [
         {
-          "click": "#fin-colour button >> nth=2"
+          "click": "button:text-is('Urgensi')"
+        },
+        {
+          "wait": 1500
         }
       ],
-      "target": "#mapcard"
+      "target": ".maplibregl-map"
     },
     {
       "id": "prio-map-intervention",
-      "page": "dashboard.html",
+      "page": "#/priority",
       "actions": [
         {
-          "click": "#fin-colour button >> nth=1"
-        }
-      ],
-      "target": "#mapcard"
-    },
-    {
-      "id": "prio-map-sumatera",
-      "page": "dashboard.html",
-      "actions": [
+          "click": "button:text-is('Intervensi')"
+        },
         {
-          "click": "#zoom-btns button >> nth=1"
+          "wait": 1500
         }
       ],
-      "target": "#mapcard"
-    },
-    {
-      "id": "prio-map-kalimantan",
-      "page": "dashboard.html",
-      "actions": [
-        {
-          "click": "#zoom-btns button >> nth=2"
-        }
-      ],
-      "target": "#mapcard"
+      "target": ".maplibregl-map"
     },
     {
       "id": "prio-types",
-      "page": "dashboard.html",
-      "target": "#final-types"
+      "page": "#/priority",
+      "block": "Tipe"
     },
     {
       "id": "prio-shift",
-      "page": "dashboard.html",
-      "target": "#fshift"
+      "page": "#/priority",
+      "block": "Perubahan peringkat"
     },
     {
-      "id": "prio-ranking",
-      "page": "dashboard.html",
-      "scrollTo": "#final-table",
+      "id": "prio-weights",
+      "page": "#/priority",
+      "scrollTo": "#final-w",
       "target": "viewport"
     },
     {
-      "id": "profile-top",
-      "page": "dashboard.html",
-      "khg": true,
-      "scrollTo": "#profile",
+      "id": "khg-top",
+      "page": "#/khg/{khg}",
       "target": "viewport"
     },
     {
-      "id": "profile-summary",
-      "page": "dashboard.html",
-      "khg": true,
-      "target": "#p-final"
+      "id": "khg-summary",
+      "page": "#/khg/{khg}",
+      "block": "Ringkasan keputusan",
+      "blockMin": 250
     },
     {
-      "id": "profile-kpis",
-      "page": "dashboard.html",
-      "khg": true,
-      "target": "#p-kpis"
+      "id": "khg-kpis",
+      "page": "#/khg/{khg}",
+      "target": ".profile-kpis"
     },
     {
-      "id": "profile-map",
-      "page": "dashboard.html",
-      "khg": true,
-      "target": "#p-maps"
+      "id": "khg-map",
+      "page": "#/khg/{khg}",
+      "target": "#khg-evidence-map"
     },
     {
-      "id": "profile-map-depth",
-      "page": "dashboard.html",
-      "khg": true,
+      "id": "khg-map-depth",
+      "page": "#/khg/{khg}",
       "actions": [
         {
+          "click": "#khg-evidence-map summary:text-is('Lapisan peta lainnya')"
+        },
+        {
+          "wait": 600
+        },
+        {
           "clickText": [
-            "#p-tools button",
+            "#khg-evidence-map button",
             "Kedalaman gambut"
           ]
+        },
+        {
+          "wait": 2500
         }
       ],
-      "target": "#p-maps"
+      "target": "#khg-evidence-map"
     },
     {
-      "id": "profile-map-damage",
-      "page": "dashboard.html",
-      "khg": true,
+      "id": "khg-map-damage",
+      "page": "#/khg/{khg}",
       "actions": [
         {
+          "click": "#khg-evidence-map summary:text-is('Lapisan peta lainnya')"
+        },
+        {
+          "wait": 600
+        },
+        {
           "clickText": [
-            "#p-tools button",
+            "#khg-evidence-map button",
             "Kerusakan (SKEG)"
           ]
+        },
+        {
+          "wait": 2500
         }
       ],
-      "target": "#p-maps"
+      "target": "#khg-evidence-map"
     },
     {
-      "id": "profile-map-canal",
-      "page": "dashboard.html",
-      "khg": true,
+      "id": "khg-map-canal",
+      "page": "#/khg/{khg}",
       "actions": [
         {
+          "click": "#khg-evidence-map summary:text-is('Lapisan peta lainnya')"
+        },
+        {
+          "wait": 600
+        },
+        {
           "clickText": [
-            "#p-tools button",
+            "#khg-evidence-map button",
             "Zona kanal"
           ]
+        },
+        {
+          "wait": 2500
         }
       ],
-      "target": "#p-maps"
+      "target": "#khg-evidence-map"
     },
     {
-      "id": "profile-map-cover",
-      "page": "dashboard.html",
-      "khg": true,
+      "id": "khg-map-satellite",
+      "page": "#/khg/{khg}",
       "actions": [
         {
           "clickText": [
-            "#p-tools button",
-            "Tutupan lahan 2022"
-          ]
-        }
-      ],
-      "target": "#p-maps"
-    },
-    {
-      "id": "profile-map-satellite",
-      "page": "dashboard.html",
-      "khg": true,
-      "actions": [
-        {
-          "clickText": [
-            "#p-tools button",
+            "#khg-evidence-map button",
             "Satelit"
           ]
-        }
-      ],
-      "target": "#p-maps"
-    },
-    {
-      "id": "profile-map-permits",
-      "page": "dashboard.html",
-      "khg": true,
-      "actions": [
+        },
         {
-          "clickText": [
-            "#p-tools button",
-            "Izin usaha"
-          ]
+          "wait": 3500
         }
       ],
-      "target": "#p-maps"
+      "target": "#khg-evidence-map"
     },
     {
-      "id": "profile-indicators",
-      "page": "dashboard.html",
-      "khg": true,
-      "target": "#p-strips"
+      "id": "khg-fire",
+      "page": "#/khg/{khg}",
+      "block": "Riwayat kebakaran",
+      "blockMin": 400
     },
     {
-      "id": "profile-landstatus",
-      "page": "dashboard.html",
-      "khg": true,
-      "target": ".ovgrid"
-    },
-    {
-      "id": "profile-charts",
-      "page": "dashboard.html",
-      "khg": true,
-      "target": "#p-charts"
-    },
-    {
-      "id": "profile-actors",
-      "page": "dashboard.html",
-      "khg": true,
-      "target": ".ov-lic"
+      "id": "khg-landstatus",
+      "page": "#/khg/{khg}",
+      "block": "Status lahan di gambut"
     },
     {
       "id": "table-top",
-      "page": "khg_table.html",
-      "target": "viewport"
-    },
-    {
-      "id": "table-kpis",
-      "page": "khg_table.html",
-      "target": "#sum"
-    },
-    {
-      "id": "fire-top",
-      "page": "fire.html",
-      "target": "viewport"
-    },
-    {
-      "id": "fire-kpis",
-      "page": "fire.html",
-      "target": "#kpis"
-    },
-    {
-      "id": "fire-full",
-      "page": "fire.html",
-      "target": "fullpage"
-    },
-    {
-      "id": "method-top",
-      "page": "method.html",
+      "page": "#/table",
       "target": "viewport"
     }
   ],
   "clips": [
     {
-      "id": "clip-colour-by",
-      "page": "dashboard.html",
-      "crop": "#mapcard",
-      "actions": [
-        {
-          "wait": 1200
-        },
-        {
-          "click": "#fin-colour button >> nth=2"
-        },
-        {
-          "wait": 1800
-        },
-        {
-          "click": "#fin-colour button >> nth=3"
-        },
-        {
-          "wait": 1800
-        },
-        {
-          "click": "#fin-colour button >> nth=4"
-        },
-        {
-          "wait": 1800
-        },
-        {
-          "click": "#fin-colour button >> nth=1"
-        },
-        {
-          "wait": 1800
-        },
-        {
-          "click": "#fin-colour button >> nth=0"
-        },
-        {
-          "wait": 1500
-        }
-      ]
-    },
-    {
-      "id": "clip-zoom-islands",
-      "page": "dashboard.html",
-      "crop": "#mapcard",
-      "actions": [
-        {
-          "wait": 1000
-        },
-        {
-          "click": "#zoom-btns button >> nth=1"
-        },
-        {
-          "wait": 3000
-        },
-        {
-          "click": "#zoom-btns button >> nth=2"
-        },
-        {
-          "wait": 3000
-        },
-        {
-          "click": "#zoom-btns button >> nth=3"
-        },
-        {
-          "wait": 3000
-        },
-        {
-          "click": "#zoom-btns button >> nth=0"
-        },
-        {
-          "wait": 2500
-        }
-      ]
-    },
-    {
       "id": "clip-weights",
-      "page": "dashboard.html",
+      "page": "#/priority",
+      "scrollTo": "#final-w",
       "actions": [
         {
           "wait": 1500
         },
         {
           "slide": [
-            "#fw-u_fire_freq",
+            "#final-w [role=slider] >> nth=0",
             0,
             1,
             50
@@ -340,7 +239,7 @@
         },
         {
           "slide": [
-            "#fw-u_hotspot_now",
+            "#final-w [role=slider] >> nth=3",
             0,
             1,
             50
@@ -351,8 +250,8 @@
         },
         {
           "slide": [
-            "#fw-u_fire_freq",
-            1,
+            "#final-w [role=slider] >> nth=0",
+            0,
             0.3,
             40
           ]
@@ -361,145 +260,25 @@
           "wait": 4000
         }
       ]
-    },
-    {
-      "id": "clip-weights-table",
-      "page": "dashboard.html",
-      "scrollTo": "#final-table",
-      "actions": [
-        {
-          "wait": 1200
-        },
-        {
-          "slide": [
-            "#fw-u_fire_freq",
-            0,
-            1,
-            25
-          ]
-        },
-        {
-          "wait": 1500
-        },
-        {
-          "slide": [
-            "#fw-u_hotspot_now",
-            0,
-            1,
-            25
-          ]
-        },
-        {
-          "wait": 1500
-        },
-        {
-          "click": "#fw-reset"
-        },
-        {
-          "wait": 1500
-        }
-      ]
-    },
-    {
-      "id": "clip-presets",
-      "page": "dashboard.html",
-      "crop": "#final",
-      "actions": [
-        {
-          "wait": 1200
-        },
-        {
-          "click": "#final-presets button >> nth=1"
-        },
-        {
-          "wait": 2500
-        },
-        {
-          "click": "#final-presets button >> nth=2"
-        },
-        {
-          "wait": 2500
-        },
-        {
-          "click": "#final-presets button >> nth=0"
-        },
-        {
-          "wait": 2000
-        }
-      ]
-    },
-    {
-      "id": "clip-profile-layers",
-      "page": "dashboard.html",
-      "khg": true,
-      "crop": "#p-maps",
-      "actions": [
-        {
-          "wait": 1200
-        },
-        {
-          "clickText": [
-            "#p-tools button",
-            "Kedalaman gambut"
-          ]
-        },
-        {
-          "wait": 2500
-        },
-        {
-          "clickText": [
-            "#p-tools button",
-            "Kerusakan (SKEG)"
-          ]
-        },
-        {
-          "wait": 2500
-        },
-        {
-          "clickText": [
-            "#p-tools button",
-            "Zona kanal"
-          ]
-        },
-        {
-          "wait": 2500
-        },
-        {
-          "clickText": [
-            "#p-tools button",
-            "Tutupan lahan 2022"
-          ]
-        },
-        {
-          "wait": 2500
-        },
-        {
-          "clickText": [
-            "#p-tools button",
-            "Satelit"
-          ]
-        },
-        {
-          "wait": 3000
-        }
-      ]
     }
   ],
   "stats": [
     {
       "id": "national",
-      "page": "khg_table.html",
-      "selector": "#sum .kpi"
+      "page": "#/table",
+      "selector": ".sumrow .kpi",
+      "value": ".v"
     },
     {
       "id": "fire",
-      "page": "fire.html",
-      "selector": "#kpis .kpi"
+      "page": "#/",
+      "selector": "dl.card > div",
+      "value": "dd"
     },
     {
       "id": "asOf",
-      "page": "dashboard.html",
-      "selector": "header p, body > p, .sub",
+      "page": "#/priority",
+      "selector": ".pz p",
       "first": true
     }
   ]

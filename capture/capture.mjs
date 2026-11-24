@@ -23,12 +23,12 @@ fs.mkdirSync(outDir, { recursive: true });
 const ffmpeg = findFfmpeg();
 
 const HIDE_CSS = `::-webkit-scrollbar{display:none!important} html{scrollbar-width:none}
-  .maplibregl-ctrl-attrib{opacity:.6} #tip,.tip,[role=tooltip]{display:none!important}`;
+  .maplibregl-ctrl-attrib{opacity:.6} #tip,.tip,[role=tooltip],[data-radix-popper-content-wrapper],
+  .maplibregl-cooperative-gesture-screen{display:none!important}`;
 
-function urlFor(shot, lang = cfg.lang) {
-  const hash = [`l=${lang}`];
-  if (shot.khg) hash.push(`k=${cfg.profileKhg}`);
-  return cfg.baseUrl + shot.page + "#" + hash.join("&");
+// `page` is a route of the dashboard app, e.g. "#/priority"; {khg} becomes profileKhg
+function urlFor(shot) {
+  return cfg.baseUrl + shot.page.replace("{khg}", cfg.profileKhg);
 }
 
 async function settle(page) {
@@ -37,9 +37,11 @@ async function settle(page) {
   await page.waitForTimeout(2500);
 }
 
-async function open(ctx, shot, lang) {
+async function open(ctx, shot, lang = cfg.lang) {
   const page = await ctx.newPage();
-  await page.goto(urlFor(shot, lang), { waitUntil: "load", timeout: 120000 });
+  // the dashboard keeps its language in localStorage ("lang": "id" | "en")
+  await page.addInitScript((l) => localStorage.setItem("lang", l), lang);
+  await page.goto(urlFor(shot), { waitUntil: "load", timeout: 120000 });
   await page.addStyleTag({ content: HIDE_CSS });
   await settle(page);
   if (shot.scrollTo) await scrollTo(page, shot.scrollTo);
@@ -65,11 +67,20 @@ async function run(page, actions = []) {
   await page.mouse.move(0, 0);
 }
 
-// drag a range input from fraction `from` to `to` of its width
+// drag a slider to fraction `to` of its track. `sel` is a range input or a slider
+// thumb (role=slider); `from` is ignored for thumbs, which start where they are.
 async function slide(page, sel, from, to, steps = 20) {
-  const box = await page.locator(sel).boundingBox();
-  const y = box.y + box.height / 2;
-  const x = (f) => box.x + 6 + f * (box.width - 12);
+  const el = page.locator(sel).first();
+  await el.scrollIntoViewIfNeeded();
+  const g = await el.evaluate((e) => {
+    const track = e.getAttribute("role") === "slider"
+      ? (e.closest("[data-slot=slider]") ?? e.parentElement.parentElement) : e;
+    const t = track.getBoundingClientRect(), th = e.getBoundingClientRect();
+    return { x: t.x, w: t.width, y: th.y + th.height / 2, cx: th.x + th.width / 2, thumb: e !== track };
+  });
+  const y = g.y;
+  const x = (f) => g.x + 6 + f * (g.w - 12);
+  if (g.thumb) from = (g.cx - g.x - 6) / (g.w - 12);
   await page.mouse.move(x(from), y);
   await page.mouse.down();
   for (let i = 1; i <= steps; i++) {
@@ -79,14 +90,31 @@ async function slide(page, sel, from, to, steps = 20) {
   await page.mouse.up();
 }
 
+// "block": a panel named by its heading text: the nearest ancestor of that heading
+// that is at least `blockMin` px tall (default 150). Marks it so it can be shot.
+async function markBlock(page, heading, min = 150) {
+  const ok = await page.evaluate(([h, m]) => {
+    document.querySelectorAll("[data-cap]").forEach((e) => e.removeAttribute("data-cap"));
+    const hd = [...document.querySelectorAll("h1,h2,h3,h4")].find((e) => e.textContent.trim().startsWith(h));
+    if (!hd) return false;
+    let el = hd.parentElement;
+    while (el && el.getBoundingClientRect().height < m) el = el.parentElement;
+    el?.setAttribute("data-cap", "1");
+    return !!el;
+  }, [heading, min]);
+  if (!ok) throw new Error(`heading "${heading}" not found`);
+  return "[data-cap]";
+}
+
 async function still(ctx, shot) {
   const page = await open(ctx, shot);
   await run(page, shot.actions);
   await page.waitForTimeout(1500);
   const file = path.join(outDir, `${shot.id}.png`);
-  if (shot.target === "viewport") await page.screenshot({ path: file });
-  else if (shot.target === "fullpage") await page.screenshot({ path: file, fullPage: true });
-  else await page.locator(shot.target).first().screenshot({ path: file });
+  const target = shot.block ? await markBlock(page, shot.block, shot.blockMin) : shot.target;
+  if (target === "viewport") await page.screenshot({ path: file });
+  else if (target === "fullpage") await page.screenshot({ path: file, fullPage: true });
+  else await page.locator(target).first().screenshot({ path: file });
   await page.close();
 }
 
@@ -154,12 +182,12 @@ async function stats(ctx) {
   for (const lang of ["id", "en"]) {
     for (const s of cfg.stats) {
       const page = await open(ctx, s, lang);
-      const items = await page.$$eval(s.selector, (els) =>
+      const items = await page.$$eval(s.selector, (els, vs) =>
         els.map((e) => {
-          const v = e.querySelector(".v")?.textContent.trim() ?? null;
+          const v = e.querySelector(vs)?.textContent.trim() ?? null;
           const all = e.innerText.replace(/\s+/g, " ").trim();
           return v ? { value: v, label: all.replace(v, "").trim() } : { text: all };
-        }));
+        }), s.value ?? ".v");
       (out[s.id] ??= {})[lang] = s.first ? items[0] ?? null : items;
       await page.close();
     }

@@ -27,7 +27,7 @@
   "file": "shots/clip-weights.mp4",
   "w": 1920,
   "h": 1080,
-  "dur": 43.53
+  "dur": 32.03
  },
  "clip-zoom-islands": {
   "file": "shots/clip-zoom-islands.mp4",
@@ -55,15 +55,85 @@
   "w": 3840,
   "h": 2160
  },
+ "khg-fire": {
+  "file": "shots/khg-fire.png",
+  "w": 3280,
+  "h": 1384
+ },
+ "khg-kpis": {
+  "file": "shots/khg-kpis.png",
+  "w": 3280,
+  "h": 156
+ },
+ "khg-landstatus": {
+  "file": "shots/khg-landstatus.png",
+  "w": 3280,
+  "h": 766
+ },
+ "khg-map-canal": {
+  "file": "shots/khg-map-canal.png",
+  "w": 3280,
+  "h": 1592
+ },
+ "khg-map-damage": {
+  "file": "shots/khg-map-damage.png",
+  "w": 3280,
+  "h": 1592
+ },
+ "khg-map-depth": {
+  "file": "shots/khg-map-depth.png",
+  "w": 3280,
+  "h": 1592
+ },
+ "khg-map-satellite": {
+  "file": "shots/khg-map-satellite.png",
+  "w": 3280,
+  "h": 1338
+ },
+ "khg-map": {
+  "file": "shots/khg-map.png",
+  "w": 3280,
+  "h": 1338
+ },
+ "khg-summary": {
+  "file": "shots/khg-summary.png",
+  "w": 3280,
+  "h": 568
+ },
+ "khg-top": {
+  "file": "shots/khg-top.png",
+  "w": 3840,
+  "h": 2160
+ },
  "method-top": {
   "file": "shots/method-top.png",
   "w": 3840,
   "h": 2160
  },
+ "nat-fire": {
+  "file": "shots/nat-fire.png",
+  "w": 3280,
+  "h": 2432
+ },
+ "nat-province": {
+  "file": "shots/nat-province.png",
+  "w": 3280,
+  "h": 1158
+ },
+ "nat-top": {
+  "file": "shots/nat-top.png",
+  "w": 3840,
+  "h": 2160
+ },
+ "nat-trends": {
+  "file": "shots/nat-trends.png",
+  "w": 3280,
+  "h": 724
+ },
  "prio-map-intervention": {
   "file": "shots/prio-map-intervention.png",
   "w": 1696,
-  "h": 1164
+  "h": 1052
  },
  "prio-map-kalimantan": {
   "file": "shots/prio-map-kalimantan.png",
@@ -78,12 +148,12 @@
  "prio-map-type": {
   "file": "shots/prio-map-type.png",
   "w": 1696,
-  "h": 1164
+  "h": 1014
  },
  "prio-map-urgency": {
   "file": "shots/prio-map-urgency.png",
   "w": 1696,
-  "h": 1164
+  "h": 1052
  },
  "prio-ranking": {
   "file": "shots/prio-ranking.png",
@@ -98,12 +168,22 @@
  "prio-shift": {
   "file": "shots/prio-shift.png",
   "w": 1474,
-  "h": 594
+  "h": 822
+ },
+ "prio-top": {
+  "file": "shots/prio-top.png",
+  "w": 3840,
+  "h": 2160
  },
  "prio-types": {
   "file": "shots/prio-types.png",
   "w": 1474,
-  "h": 402
+  "h": 450
+ },
+ "prio-weights": {
+  "file": "shots/prio-weights.png",
+  "w": 3840,
+  "h": 2160
  },
  "profile-actors": {
   "file": "shots/profile-actors.png",
@@ -184,6 +264,21 @@
   "file": "shots/table-top.png",
   "w": 3840,
   "h": 2160
+ },
+ "water-region": {
+  "file": "shots/water-region.png",
+  "w": 3280,
+  "h": 1206
+ },
+ "water-top": {
+  "file": "shots/water-top.png",
+  "w": 3840,
+  "h": 2160
+ },
+ "water-weekly": {
+  "file": "shots/water-weekly.png",
+  "w": 3280,
+  "h": 1096
  },
  "nasa-haze-2015": {
   "file": "photos/nasa-haze-2015.jpg",

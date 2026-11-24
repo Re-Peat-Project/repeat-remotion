@@ -33,3 +33,6 @@ public/shots/profile-map-permits.png
 .agents/
 .claude/settings.local.json
 skills-lock.json
+
+# the team's video (not ours to publish); get it from the team
+public/team/
